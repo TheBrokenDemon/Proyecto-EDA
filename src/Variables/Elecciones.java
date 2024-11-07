@@ -85,25 +85,7 @@ public class Elecciones {
                     this.dia_eleccion.leer();
                 }
                 case 3 -> {
-                    System.out.println("1. Agregar");
-                    System.out.println("2. Cambiar datos");
-                    System.out.println("3. Eliminar");
-                    int y = src.nextInt();
-                    switch (y) {
-                        case 1 -> {
-                            lista.agregar();
-                        }
-                        case 2 -> {
-                            System.out.print("Ingrese el DNI del candidato deseado: ");
-                            int z = src.nextInt();
-                            lista.Cambiar(z);
-                        }
-                        default -> {
-                            System.out.print("Ingrese el DNI del candidato deseado: ");
-                            int z = src.nextInt();
-                            lista.eliminar(z);
-                        }
-                    }
+                    lista.Cambiar();
                 }
                 default -> {
                     listMe.cambiar();
@@ -111,8 +93,7 @@ public class Elecciones {
             }
         }else{
             System.out.println("Ya no es posible cambiar los datos.");
-        }
-            
+        } 
     }
     
     public void Registro_votos(){

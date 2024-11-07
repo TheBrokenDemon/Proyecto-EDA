@@ -37,16 +37,35 @@ public class Candidatos_Lista {
         }
     }
     
-    public void Cambiar(int dni){
-        System.out.println("Ingrese nuevamente los datos.");
-        System.out.println("DNI: ");
-        int newdni = src.nextInt();
-        System.out.println("Nombre: ");
-        String name = src.next();
-        System.out.println("Partido: ");
-        String party = src.next();
-        list.iesimo(dni).setDni(newdni);
-        list.iesimo(dni).setNombres(name);
-        list.iesimo(dni).setPartido(party);
+    public void Cambiar(){
+        System.out.println("1. Agregar");
+        System.out.println("2. Cambiar datos");
+        System.out.println("3. Eliminar");
+        int y = src.nextInt();
+        switch (y) {
+            case 1 -> {
+                System.out.println("Ingrese los datos del candidato.");
+                agregar();
+            }
+            case 2 -> {
+                System.out.println("Ingrese el Dni del candidato: ");
+                int pos = src.nextInt();
+                System.out.println("Ingrese nuevamente los datos.");
+                System.out.println("DNI: ");
+                int newdni = src.nextInt();
+                System.out.println("Nombre: ");
+                String name = src.next();
+                System.out.println("Partido: ");
+                String party = src.next();
+                list.iesimo(pos).setDni(newdni);
+                list.iesimo(pos).setNombres(name);
+                list.iesimo(pos).setPartido(party);
+            }
+            case 3 -> {
+                System.out.println("Ingrese el Dni del candidato: ");
+                int pos = src.nextInt();
+                list.eliminar(pos);
+            }
+        }
     }
 }
