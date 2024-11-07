@@ -60,11 +60,17 @@ public class Fecha {
     public boolean Actualidad(){
         Calendar cal = Calendar.getInstance();
         int añoActual = cal.get(Calendar.YEAR);
-        int mesActual = cal.get(Calendar.MONTH);
+        int mesActual = cal.get(Calendar.MONTH) + 1;
         int diaActual = cal.get(Calendar.DAY_OF_MONTH);
-        LocalDate x = LocalDate.of(añoActual, mesActual, diaActual);
-        LocalDate y = LocalDate.of(año, mes, dia);
-        return y.isBefore(x);
+        if(año >= añoActual){
+            return true;
+        }else{
+            if(mes >= mesActual){
+                return true;
+            }else{
+                return dia > diaActual;
+            }
+        }
     }
     
 }

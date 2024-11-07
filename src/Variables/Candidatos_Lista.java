@@ -15,7 +15,7 @@ public class Candidatos_Lista {
         int DNI = src.nextInt();
         System.out.print("Ingrese el nombre de la persona: ");
         String name = src.next();
-        System.out.println("Ingrese el partido de la persona: ");
+        System.out.print("Ingrese el partido de la persona: ");
         String party = src.next();
         Candidato cand = new Candidato(DNI, name, party);
         list.agregar(cand);
@@ -49,7 +49,4 @@ public class Candidatos_Lista {
         list.iesimo(dni).setNombres(name);
         list.iesimo(dni).setPartido(party);
     }
-    
-    
-    
 }

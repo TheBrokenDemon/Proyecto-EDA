@@ -89,7 +89,7 @@ public class Lista<T> {
         }
         return elemento;
     }
-
+    
     /*
      * ubicacion: devuelve la posicion de un elemento de la lista
      */

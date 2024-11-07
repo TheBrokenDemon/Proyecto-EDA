@@ -6,11 +6,13 @@ public class Elecciones {
     public String tipo; //Tipo de eleciones
     public Fecha dia_eleccion;
     public Candidatos_Lista lista;
+    public Lista_Mesas listMe;
     
     public Elecciones(){
         this.tipo = "";
         this.dia_eleccion = new Fecha();
         this.lista = new Candidatos_Lista();
+        this.listMe = new Lista_Mesas();
     }
 
     public String getTipo() {
@@ -36,7 +38,15 @@ public class Elecciones {
     public void setLista(Candidatos_Lista lista) {
         this.lista = lista;
     }
-    
+
+    public Lista_Mesas getListMe() {
+        return listMe;
+    }
+
+    public void setListMe(Lista_Mesas listMe) {
+        this.listMe = listMe;
+    }
+
     
     public void Crear(){
         System.out.print("Ingrese el tipo de elecciones que se haran: ");
@@ -49,6 +59,12 @@ public class Elecciones {
             System.out.println(i+".");
             this.lista.agregar();
         }
+        System.out.print("Ingrese el numero de mesas electorales: ");
+        int y = src.nextInt();
+        for (int i = 1; i <= y; i++) {
+            System.out.println(i+".");
+            this.listMe.agregar();
+        }
     }
     
     public void Cambiar(){
@@ -56,6 +72,7 @@ public class Elecciones {
             System.out.println("1. Tipo");
             System.out.println("2. Fecha");
             System.out.println("3. Candidatos");
+            System.out.println("4. Mesa Electoral");
             System.out.println("Que desea cambiar? ");
             int x = src.nextInt();
             switch (x) {
@@ -67,7 +84,7 @@ public class Elecciones {
                     System.out.println("Ingrese la nueva fecha.");
                     this.dia_eleccion.leer();
                 }
-                default -> {
+                case 3 -> {
                     System.out.println("1. Agregar");
                     System.out.println("2. Cambiar datos");
                     System.out.println("3. Eliminar");
@@ -88,12 +105,24 @@ public class Elecciones {
                         }
                     }
                 }
+                default -> {
+                    listMe.cambiar();
+                }
             }
         }else{
             System.out.println("Ya no es posible cambiar los datos.");
         }
             
     }
+    
+    public void Registro_votos(){
+        
+        
+        
+        
+    }
+    
+    
     
     
     
