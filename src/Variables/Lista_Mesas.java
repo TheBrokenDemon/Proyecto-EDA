@@ -9,6 +9,15 @@ public class Lista_Mesas {
     public Lista_Mesas(){
         this.list = new Lista();
     }
+
+    public Lista<Mesa_Electoral> getList(){
+        return list;
+    }
+
+    public void setList(Lista<Mesa_Electoral> list){
+        this.list = list;
+    }
+    
     
     public void agregar(){
         Mesa_Electoral aux = new Mesa_Electoral();
@@ -48,6 +57,7 @@ public class Lista_Mesas {
         System.out.println("1. Ubicacion");
         System.out.println("2. Numero de mesa");
         System.out.println("3. Lista de Miembros");
+        System.out.println("4. Eliminar");
         System.out.println("Que desea cambiar? ");
         int y = src.nextInt();
         switch (y) {
@@ -61,13 +71,25 @@ public class Lista_Mesas {
                 int aux = src.nextInt();
                 list.iesimo(num).setNumMesa(aux);
             }
-            default -> {
+            case 3 -> {
                 System.out.print("Ingrese la clave del miembro: ");
                 int aux = src.nextInt();
                 list.iesimo(num).cambiar_miembros(aux);
             }
+            default -> {
+                System.out.println("Ingrese el numero de mesa: ");
+                int aux = src.nextInt();
+                list.eliminar(aux);
+            }
         }
     }
+    
+    public int Longitud(){
+        return list.longitud();
+    }
+    
+    
+   
         
         
         

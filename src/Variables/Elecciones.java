@@ -7,12 +7,14 @@ public class Elecciones {
     public Fecha dia_eleccion;
     public Candidatos_Lista lista;
     public Lista_Mesas listMe;
+    public Cola_Registros cola;
     
     public Elecciones(){
         this.tipo = "";
         this.dia_eleccion = new Fecha();
         this.lista = new Candidatos_Lista();
         this.listMe = new Lista_Mesas();
+        this.cola = new Cola_Registros();
     }
 
     public String getTipo() {
@@ -47,6 +49,14 @@ public class Elecciones {
         this.listMe = listMe;
     }
 
+    public Cola_Registros getCola() {
+        return cola;
+    }
+
+    public void setCola(Cola_Registros cola) {
+        this.cola = cola;
+    }
+ 
     
     public void Crear(){
         System.out.print("Ingrese el tipo de elecciones que se haran: ");
@@ -68,39 +78,54 @@ public class Elecciones {
     }
     
     public void Cambiar(){
-        if(this.dia_eleccion.Actualidad()){
-            System.out.println("1. Tipo");
-            System.out.println("2. Fecha");
-            System.out.println("3. Candidatos");
-            System.out.println("4. Mesa Electoral");
-            System.out.println("Que desea cambiar? ");
-            int x = src.nextInt();
-            switch (x) {
-                case 1 -> {
-                    System.out.println("Ingrese el nuevo tipo: ");
-                    this.tipo = src.next();
+        boolean terminado = false;
+        do{
+            if(this.dia_eleccion.Actualidad()){
+                System.out.println("1. Tipo");
+                System.out.println("2. Fecha");
+                System.out.println("3. Candidatos");
+                System.out.println("4. Mesa Electoral");
+                System.out.println("Salir.");
+                System.out.println("Que desea cambiar? ");
+                int x = src.nextInt();
+                switch (x) {
+                    case 1 -> {
+                        System.out.println("Ingrese el nuevo tipo: ");
+                        this.tipo = src.next();
+                        break;
+                    }
+                    case 2 -> {
+                        System.out.println("Ingrese la nueva fecha.");
+                        this.dia_eleccion.leer();
+                        break;
+                    }
+                    case 3 -> {
+                        lista.Cambiar();
+                        break;
+                    }
+                    case 4 -> {
+                        listMe.cambiar();
+                        break;
+                    }
+                    default -> {
+                        terminado = true;
+                        break;
+                    }
                 }
-                case 2 -> {
-                    System.out.println("Ingrese la nueva fecha.");
-                    this.dia_eleccion.leer();
-                }
-                case 3 -> {
-                    lista.Cambiar();
-                }
-                default -> {
-                    listMe.cambiar();
-                }
+            }else{
+                System.out.println("Ya no es posible cambiar los datos.");
+                terminado = true;
+                break;
             }
-        }else{
-            System.out.println("Ya no es posible cambiar los datos.");
-        } 
+        }while(!terminado);
     }
     
-    public void Registro_votos(){
-        
-        
-        
-        
+    public void Crear_Registro(){
+        cola.Regsitrar_actas(listMe);
+    }
+    
+    public void Contar_Votos(){
+        System.out.println("Numero total de votos: "+cola.Contar());
     }
     
     

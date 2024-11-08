@@ -70,4 +70,37 @@ public class Cola<T> {
         }
         return i;
     }
+    
+    public T Iesimo(int pos, Cola<T> line){
+        int cont = 1;
+        Cola<T> aux = new Cola();
+        T res = null;
+        while (!line.esVacia()){
+            aux.encolar(line.desencolar());
+        }
+        while (!aux.esVacia()){
+            T val = aux.desencolar();
+            if(cont == pos){
+                res = val;
+            }
+            line.encolar(val);
+            cont++;
+        }
+        return res;
+    }
+    
+    public static void main(String[] args) {
+        Cola<Integer> c1 = new Cola();
+        c1.encolar(2);
+        c1.encolar(6);
+        c1.encolar(9);
+        c1.encolar(1);
+        c1.encolar(3);
+        Integer aux = c1.Iesimo(2, c1);
+        System.out.println(aux);
+        
+        
+    }
 }
+
+
