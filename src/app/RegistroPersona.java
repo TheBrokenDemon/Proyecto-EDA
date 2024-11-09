@@ -2,7 +2,6 @@ package app;
 
 import tda.Lista;
 
-/*
 public class RegistroPersona {
     private Lista<Persona> lista;
     
@@ -39,4 +38,3 @@ public class RegistroPersona {
 
     
 }
-*/
