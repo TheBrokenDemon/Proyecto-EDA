@@ -1,9 +1,6 @@
 package Variables;
-import java.util.Scanner;
-import tda.*;
 
 public class Mesa_Electoral{
-    Scanner src = new Scanner(System.in);
     
     public Lista_Miembros list;
     public String ubicacion;
