@@ -21,5 +21,22 @@ public class Candidato extends Persona {
         this.partido = partido;
     }
     
+    @Override
+    public int getDni() {
+        return dni;
+    }
+    
+    @Override
+    public void setDni(int dni) {
+        this.dni = dni;
+    }
+    @Override
+    public String getNombres() {
+        return nombres;
+    }
+    @Override
+    public void setNombres(String nombres) {
+        this.nombres = nombres;
+    }
     
 }

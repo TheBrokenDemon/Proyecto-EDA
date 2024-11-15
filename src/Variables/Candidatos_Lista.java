@@ -51,11 +51,11 @@ public class Candidatos_Lista {
                 System.out.println("Ingrese el Dni del candidato: ");
                 int pos = src.nextInt();
                 System.out.println("Ingrese nuevamente los datos.");
-                System.out.println("DNI: ");
+                System.out.print("DNI: ");
                 int newdni = src.nextInt();
-                System.out.println("Nombre: ");
+                System.out.print("Nombre: ");
                 String name = src.next();
-                System.out.println("Partido: ");
+                System.out.print("Partido: ");
                 String party = src.next();
                 list.iesimo(pos).setDni(newdni);
                 list.iesimo(pos).setNombres(name);

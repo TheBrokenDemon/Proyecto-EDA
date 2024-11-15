@@ -128,6 +128,9 @@ public class Elecciones {
         System.out.println("Numero total de votos: "+cola.Contar());
     }
     
+    public void Mostrar_datos(){
+        
+    }
     
     
     
