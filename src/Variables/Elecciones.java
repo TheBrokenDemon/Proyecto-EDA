@@ -1,5 +1,6 @@
 package Variables;
 import java.util.Scanner;
+import tda.*;
 
 public class Elecciones {
     Scanner src = new Scanner(System.in);
@@ -8,6 +9,7 @@ public class Elecciones {
     public Candidatos_Lista lista;
     public Lista_Mesas listMe;
     public Cola_Registros cola;
+    
     
     public Elecciones(){
         this.tipo = "";
@@ -85,7 +87,8 @@ public class Elecciones {
                 System.out.println("2. Fecha");
                 System.out.println("3. Candidatos");
                 System.out.println("4. Mesa Electoral");
-                System.out.println("Salir.");
+                System.out.println("5. Actas Electorales");
+                System.out.println("6. Contar votos");
                 System.out.println("Que desea cambiar? ");
                 int x = src.nextInt();
                 switch (x) {
@@ -107,7 +110,12 @@ public class Elecciones {
                         listMe.cambiar();
                         break;
                     }
+                    case 5 -> {
+                        cola.Regsitrar_actas(listMe);
+                        break;
+                    }
                     default -> {
+                        System.out.println("Hasta luego.");
                         terminado = true;
                         break;
                     }
@@ -120,21 +128,16 @@ public class Elecciones {
         }while(!terminado);
     }
     
-    public void Crear_Registro(){
-        cola.Regsitrar_actas(listMe);
-    }
-    
     public void Contar_Votos(){
+        Pila votos = new Pila();
         System.out.println("Numero total de votos: "+cola.Contar());
-    }
-    
-    public void Mostrar_datos(){
+        for (int i = 1; i < lista.getList().longitud(); i++) {
+            System.out.println("Ingrese el numero de votos para: "+lista.getList().iesimo(i).getNombres());
+            int aux = src.nextInt();
+            votos.push(aux);
+        }
+        System.out.println("Ingrese el numero de  votos en blanco: ");
+        int blanc = src.nextInt();
         
     }
-    
-    
-    
-    
-    
-    
 }

@@ -18,7 +18,6 @@ public class Lista_Mesas {
         this.list = list;
     }
     
-    
     public void agregar(){
         Mesa_Electoral aux = new Mesa_Electoral();
         System.out.print("Ingrese la Ubicacion de la mesa: ");
@@ -75,7 +74,7 @@ public class Lista_Mesas {
                 System.out.print("Ingrese la clave del miembro: ");
                 int aux = src.nextInt();
                 list.iesimo(num).cambiar_miembros(aux);
-            }
+            }    
             default -> {
                 System.out.println("Ingrese el numero de mesa: ");
                 int aux = src.nextInt();
@@ -87,13 +86,4 @@ public class Lista_Mesas {
     public int Longitud(){
         return list.longitud();
     }
-    
-    
-   
-        
-        
-        
-        
-    
-    
 }

@@ -9,6 +9,16 @@ public class Candidatos_Lista {
     public Candidatos_Lista(){
         this.list = new Lista();
     }
+
+    public Lista<Candidato> getList() {
+        return list;
+    }
+
+    public void setList(Lista<Candidato> list) {
+        this.list = list;
+    }
+    
+    
     
     public void agregar(){
         System.out.print("Ingrese el dni de la persona: ");
