@@ -89,7 +89,9 @@ public class Elecciones {
                 System.out.println("4. Mesa Electoral");
                 System.out.println("5. Actas Electorales");
                 System.out.println("6. Contar votos");
-                System.out.println("Que desea cambiar? ");
+                System.out.println("7. Mostrar datos");
+                System.out.println("8. Salir");
+                System.out.println("Que desea hacer? ");
                 int x = src.nextInt();
                 switch (x) {
                     case 1 -> {
@@ -114,6 +116,14 @@ public class Elecciones {
                         cola.Regsitrar_actas(listMe);
                         break;
                     }
+                    case 6 -> {
+                        Contar_Votos();
+                        break;
+                    }
+                    case 7 -> {
+                        Mostrar();
+                        break;
+                    }
                     default -> {
                         System.out.println("Hasta luego.");
                         terminado = true;
@@ -131,7 +141,7 @@ public class Elecciones {
     public void Contar_Votos(){
         Pila votos = new Pila();
         System.out.println("Numero total de votos: "+cola.Contar());
-        for (int i = 1; i < lista.getList().longitud(); i++) {
+        for (int i = 1; i <= lista.getList().longitud(); i++) {
             System.out.println("Ingrese el numero de votos para: "+lista.getList().iesimo(i).getNombres());
             int aux = src.nextInt();
             votos.push(aux);
@@ -139,5 +149,29 @@ public class Elecciones {
         System.out.println("Ingrese el numero de  votos en blanco: ");
         int blanc = src.nextInt();
         
+    }
+    
+    public void Mostrar(){
+        System.out.println("-Elecciones-");
+        System.out.println("Tipo: "+tipo);
+        System.out.println("Fecha: "+dia_eleccion.verFecha());
+        System.out.println("Lista de candidatos: ");
+        for (int i = 1; i <= lista.getList().longitud(); i++) {
+            System.out.println("- "+lista.getList().iesimo(i).getNombres());
+        }
+        System.out.println("----------");
+        System.out.println("Info de mesas: ");
+        System.out.println("Ubicacion"+"\t"+"Numero de mesa");
+        for (int i = 1; i <= listMe.getList().longitud(); i++) {
+            System.out.println(listMe.getList().iesimo(i).getUbicacion() + "\t" + listMe.getList().iesimo(i).getNumMesa());
+        }
+        System.out.println("----------");
+        System.out.println("Info de actas: ");
+        System.out.println("Titulo"+"\t"+"Numero de votos"+"\t"+"Numero de mesa");
+        for (int i = 1; i <= cola.getCola().longitud(); i++) {
+            System.out.println(this.cola.getCola().Iesimo(i, cola.getCola()).getTitulo() + "\t" +
+                               this.cola.getCola().Iesimo(i, cola.getCola()).getNumVotos() + "\t" +
+                               this.cola.getCola().Iesimo(i, cola.getCola()).getNumMesa());
+        }
     }
 }

@@ -16,7 +16,9 @@ public class Gestion_de_Elecciones {
             Elecciones demo = new Elecciones();
             demo.Crear();
             demo.Cambiar();
-            demo.Contar_Votos();
+            
+            
+            
         }else{
             //No inicia el programa
             System.out.println("Error en contraseña o nombre.");
